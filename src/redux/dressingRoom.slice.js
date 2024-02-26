@@ -263,10 +263,13 @@ const dressingRoomSlice = createSlice({
   reducers: {
     chosseClothesType: (state,action) =>{
         state.chooseCategory = action.payload
+    },
+    getCloth: (state,action) =>{
+      state.wearClothes[action.payload.type] = action.payload.img
     }
   }
 });
 
-export const {chosseClothesType} = dressingRoomSlice.actions
+export const {chosseClothesType,getCloth} = dressingRoomSlice.actions
 
 export const dressingRoomReducer = dressingRoomSlice.reducer

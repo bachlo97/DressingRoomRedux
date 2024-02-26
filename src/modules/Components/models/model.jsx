@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import classes from './model.module.css'
+import { useSelector } from 'react-redux'
 
-const {contain,body,model,bikinitop,bikinibottom,feetleft,feetright} = {
+const { contain, body, model, bikinitop, bikinibottom, feetleft, feetright } = {
   contain: "/background_998.jpg",
   body: "/bodynew.png",
   model: "/1000new.png",
@@ -13,7 +14,7 @@ const {contain,body,model,bikinitop,bikinibottom,feetleft,feetright} = {
 
 
 function Model() {
-
+  const { topclothes, botclothes, background, shoes, handbags, necklaces, hairstyle } = useSelector(state => state.dressingRoomReducer.wearClothes)
   return (
     <div
       className={classes.contain}
@@ -42,6 +43,36 @@ function Model() {
       <div
         className={classes.feetright}
         style={{ backgroundImage: `url(${feetright})` }}
+      ></div>
+
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${topclothes})`, backgroundSize: 'cover' }}
+      ></div>
+      <div
+        className={classes.contain}
+        style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover' }}
+      ></div>
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${botclothes})`, backgroundSize: 'cover' }}
+      ></div>
+
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${shoes})`, backgroundSize: 'cover' }}
+      ></div>
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${handbags})`, backgroundSize: 'cover' }}
+      ></div>
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${necklaces})`, backgroundSize: 'cover' }}
+      ></div>
+      <div
+        className={classes.bikinitop}
+        style={{ backgroundImage: `url(${hairstyle})`, backgroundSize: 'cover', top: '-5%', left: '29%', width: '193px', height: '190px' }}
       ></div>
     </div>
   )
